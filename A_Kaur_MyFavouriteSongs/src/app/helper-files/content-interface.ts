@@ -3,7 +3,7 @@ interface Content {
 title: string;
 description: string;
 creater: string;
-imgUrl?: string;
+imgURL?: string;
 type?: string;
 tags?: string;
 }
