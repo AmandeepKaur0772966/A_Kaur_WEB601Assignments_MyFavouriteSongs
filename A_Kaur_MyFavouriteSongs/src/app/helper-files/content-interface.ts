@@ -5,5 +5,5 @@ description: string;
 creater: string;
 imgUrl?: string;
 type?: string;
-
+tags?: string;
 }
