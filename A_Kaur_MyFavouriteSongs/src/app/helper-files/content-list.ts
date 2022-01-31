@@ -1,3 +1,3 @@
-class ContentList {
+class ContentList{
     
 }
