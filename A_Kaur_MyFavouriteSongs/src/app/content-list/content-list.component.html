@@ -1,0 +1,61 @@
+<div class="content-fluid">
+  <div class="row p-4">
+    <div
+      class="col-md-3 mb-4 d-flex align-items-stretch"
+      *ngFor="let item of items; let first = first; let last = last"
+    >
+      <div
+        class="card"
+        [appHoverAffect]="first || last ? 'border' : ''"
+        defaultColor="violet"
+      >
+        <!-- [ngClass]="i == 0 ? 'card-border-2' : ''" -->
+        <img
+          class="card-img-top"
+          height="400px"
+          src="{{ item.imgURL }}"
+          alt="Card image cap"
+          *ngIf="item.imgURL"
+        />
+        <img
+          class="card-img-top"
+          height="400px"
+          src="{{ defaultImgUrl }}"
+          alt="Card image cap"
+          *ngIf="!item.imgURL"
+        />
+        <div class="card-body">
+          <header [appHoverAffect]="'textDecoration'">{{ item.title }}</header>
+          <p
+            class="card-text"
+            *ngIf="item?.description"
+            [appHoverAffect]="'textDecoration'"
+          >
+            {{ item.description }}
+          </p>
+          <p
+            class="card-text"
+            *ngIf="item?.type"
+            [appHoverAffect]="'textDecoration'"
+          >
+            <strong>Type</strong> {{ item?.type }}
+          </p>
+          <p
+            class="card-text"
+            *ngIf="item?.creator"
+            [appHoverAffect]="'textDecoration'"
+          >
+            <strong>Creator</strong> {{ item?.creator }}
+          </p>
+          <p
+            class="card-text"
+            *ngIf="item?.tags"
+            [appHoverAffect]="'textDecoration'"
+          >
+            <strong>Tags</strong> {{ item?.tags }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
