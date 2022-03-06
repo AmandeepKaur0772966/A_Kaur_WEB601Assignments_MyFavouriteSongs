@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="form p-4">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="row">
+        <div class="col-12">
+          <p class="text-primary display-4">Add Song</p>
+        </div>
+
+        <div class="col-12">
+          <p
+            class="alert text-danger"
+            style="
+              font-size: 20px;
+              font-weight: bold;
+              background-color: #fafafa;
+            "
+            *ngIf="!isValid"
+          >
+            User must try to create the content again with the required fields
+            filled in.
+          </p>
+        </div>
+
+        <div class="md-6">
+          <div class="form-group">
+            <label for="">ID<span class="text-danger">*</span></label>
+            <input
+              type="number"
+              class="form-control"
+              name="id"
+              ngModel
+              required
+              #id="ngModel"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="">Title<span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              name="title"
+              required
+              ngModel
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="">Label<span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              name="label"
+              required
+              ngModel
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="">Music<span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              name="music"
+              required
+              ngModel
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="">Description<span class="text-danger">*</span></label>
+            <textarea
+              class="form-control"
+              name="description"
+              required
+              ngModel
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="">Creator<span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              name="creator"
+              required
+              ngModel
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="">Img URL</label>
+            <input type="text" class="form-control" name="imgUrl" ngModel />
+          </div>
+
+          <div class="form-group">
+            <label for="">Color<span class="text-danger">*</span></label>
+            <input
+              type="color"
+              class="form-control"
+              name="color"
+              required
+              ngModel
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="">Type</label>
+            <select class="form-control" name="type" ngModel>
+              <option value="null"></option>
+              <option value="string">String</option>
+              <option value="boolean">Boolean</option>
+              <option value="number">Number</option>
+              <option value="array">Array</option>
+            </select>
+          </div>
+
+          <div class="form-group mt-4">
+            <button class="btn btn-success btn-block">Add Content</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="content-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row p-4">
+        <h3>Search</h3>
+        <input
+          type="search"
+          [(ngModel)]="searchValue"
+          placeholder="Enter the title"
+          class="form-control"
+          id=""
+        />
+        <button
+          type="button"
+          class="btn btn-success mt-4"
+          (click)="searchByTitle()"
+        >
+          Search
+        </button>
+
+        <div [innerHTML]="searchMsg"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row p-4">
+    <!-- *ngFor="let item of items|search:searchValue ;let i = index" -->
+
+    <div
+      class="col-md-3 mb-4 d-flex align-items-stretch"
+      *ngFor="let item of dataService.items | filterContent; let i = index"
+    >
+      <div
+        class="card"
+        *ngIf="i < 10"
+        [ngClass]="
+          item.searchFilter
+            ? 'card-border-filter'
+            : i == 0
+            ? 'card-border-2'
+            : ''
+        "
+        [ngStyle]="{
+          'background-color': item.color,
+          color: i == 0 ? 'black' : 'white'
+        }"
+      >
+        <img
+          class="card-img-top"
+          height="250px"
+          src="{{ item.imgURL }}"
+          alt="Card image cap"
+          *ngIf="item?.imgURL"
+          (click)="showItemDetails(i)"
+        />
+        <div class="card-body">
+          <header>{{ item.title }}</header>
+          <p class="card-text" *ngIf="item?.description">
+            {{ item.description }}
+          </p>
+          <p class="card-text" *ngIf="item?.type">
+            <strong>Type</strong> {{ item?.type }}
+          </p>
+          <p class="card-text" *ngIf="item?.creator">
+            <strong>Creator</strong> {{ item?.creator }}
+          </p>
+          <p class="card-text" *ngIf="item?.tags">
+            <strong>Tags</strong> {{ item?.tags }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="alert alert-primary">String Type</h1>
+
+<div class="row">
+  <div
+    class="col-md-3 mb-4 d-flex align-items-stretch"
+    *ngFor="
+      let item of dataService.items | filterContent: 'string';
+      let i = index
+    "
+  >
+    <div
+      class="card"
+      *ngIf="i < 10"
+      [ngClass]="
+        item.searchFilter ? 'card-border-filter' : i == 0 ? 'card-border-2' : ''
+      "
+      [ngStyle]="{
+        'background-color': item.color,
+        color: i == 0 ? 'black' : 'white'
+      }"
+    >
+      <img
+        class="card-img-top"
+        height="250px"
+        src="{{ item.imgURL }}"
+        alt="Card image cap"
+        *ngIf="item?.imgURL"
+        (click)="showItemDetails(i)"
+      />
+      <div class="card-body">
+        <header>{{ item.title }}</header>
+        <p class="card-text" *ngIf="item?.description">
+          {{ item.description }}
+        </p>
+        <p class="card-text" *ngIf="item?.type">
+          <strong>Type</strong> {{ item?.type }}
+        </p>
+        <p class="card-text" *ngIf="item?.creator">
+          <strong>Creator</strong> {{ item?.creator }}
+        </p>
+        <p class="card-text" *ngIf="item?.tags">
+          <strong>Tags</strong> {{ item?.tags }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
