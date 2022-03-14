@@ -1,0 +1,13 @@
+.msg__box {
+  margin: 10px 15px;
+  padding: 16px;
+  background-color: #fafafa;
+  box-shadow: 0px 12px 24px #ddd;
+  button {
+    float: right;
+  }
+  .msg__text {
+    font-weight: bold;
+    margin-top: 4px;
+  }
+}
