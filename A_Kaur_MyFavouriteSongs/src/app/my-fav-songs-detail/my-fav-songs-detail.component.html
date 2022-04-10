@@ -1,0 +1,71 @@
+<div class="content-fluid">
+  <p class="display-1 m-4">Song Details</p>
+  <div class="row p-4">
+    <div
+      class="alert alert-primary"
+      *ngIf="!selectedContentDetails"
+      style="font-size: 25px"
+    >
+      Sorry Not Record Found!
+    </div>
+
+    <div
+      class="col-md-4 mb-4 d-flex align-selectedContentDetails?s-stretch"
+      *ngIf="selectedContentDetails"
+    >
+      <mat-card>
+        <img
+          class="card-img-top"
+          height="400px"
+          src="{{ selectedContentDetails?.imgURL }}"
+          alt="Card image cap"
+          *ngIf="selectedContentDetails?.imgURL"
+        />
+        <img
+          class="card-img-top"
+          height="400px"
+          src="{{ defaultImgUrl }}"
+          alt="Card image cap"
+          *ngIf="!selectedContentDetails?.imgURL"
+        />
+        <mat-card-title class="mt-4">
+          <header>
+            {{ selectedContentDetails?.title }}
+          </header></mat-card-title
+        >
+        <mat-card-content>
+          <p class="card-text" *ngIf="selectedContentDetails?.description">
+            {{ selectedContentDetails?.description }}
+          </p>
+          <p class="card-text" *ngIf="selectedContentDetails?.type">
+            <strong>Type</strong> {{ selectedContentDetails?.type }}
+          </p>
+          <p class="card-text" *ngIf="selectedContentDetails?.creator"></p>
+
+          <p>
+            <button
+              mat-flat-button
+              color="primary"
+              matBadge="*"
+              matBadgePosition="before"
+              matBadgeColor="accent"
+            >
+              Creator
+            </button>
+
+            {{ selectedContentDetails?.creator }}
+          </p>
+          <p class="card-text" *ngIf="selectedContentDetails?.tags">
+            <strong>Tags</strong>
+            <mat-chip-list
+              aria-label="tags area"
+              *ngFor="let tag of selectedContentDetails?.tags"
+            >
+              <mat-chip selected>{{ tag }}</mat-chip>
+            </mat-chip-list>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,145 @@
+<div class="form p-4">
+  <!--   -->
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="row">
+      <div class="col-md-12" color="primary">
+        <p class="display-4">{{ data.title }}</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field>
+            <label for="">ID</label>
+
+            <input
+              matInput
+              type="number"
+              name="id"
+              [ngModel]="data?.cardData?.id"
+              *ngIf="data.title == 'Update Song'"
+            />
+
+            <input
+              matInput
+              type="number"
+              name="id"
+              disabled
+              ngModel
+              *ngIf="data.title != 'Update Song'"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <label for="">Title<span class="text-danger">*</span></label>
+            <input
+              matInput
+              type="text"
+              name="title"
+              required
+              [ngModel]="data?.cardData?.title"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <label for="">Label<span class="text-danger">*</span></label>
+            <input
+              type="text"
+              matInput
+              name="label"
+              required
+              [ngModel]="data?.cardData?.label"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <label for="">Music<span class="text-danger">*</span></label>
+            <input
+              matInput
+              type="text"
+              name="music"
+              required
+              [ngModel]="data?.cardData?.music"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <label>Description<span class="text-danger">*</span></label>
+            <textarea
+              matInput
+              name="description"
+              required
+              [ngModel]="data?.cardData?.description"
+            ></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <label for="">Creator<span class="text-danger">*</span></label>
+            <input
+              matInput
+              type="text"
+              name="creator"
+              required
+              [ngModel]="data?.cardData?.creator"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <label for="">Img URL</label>
+            <input
+              matInput
+              type="text"
+              name="imgUrl"
+              [ngModel]="data?.cardData?.imgURL"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <label>Color<span class="text-danger">*</span></label>
+
+            <input
+              type="color"
+              matInput
+              name="color"
+              [ngModel]="
+                data?.cardData?.color ? data?.cardData?.color : '#ff00ff'
+              "
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4 mt-4">
+          <button
+            mat-raised-button
+            color="primary"
+            *ngIf="data.title != 'Update Song'"
+          >
+            {{ data.title }}
+          </button>
+
+          <button
+            mat-raised-button
+            color="accent"
+            *ngIf="data.title == 'Update Song'"
+          >
+            {{ data.title }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<button mat-button color="accent" (click)="closeDialog()">Close</button>
