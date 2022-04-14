@@ -30,7 +30,7 @@ export class ContentListComponent implements OnInit {
   searchSongFromId(): void {
     this.favSongsService
       .searchSongFromId(this.songsId)
-      .subscribe((novels) => (this.filterSongs = novels));
+      .subscribe((mySongs) => (this.filterSongs = mySongs));
   }
 
   showItemDetails(index: number) {}
